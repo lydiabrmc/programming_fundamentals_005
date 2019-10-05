@@ -1,10 +1,10 @@
-const setUpGlobalObject = require("../lib/sugar");
+const setUpGlobalObject = require('../lib/sugar');
 
 // Invoking this function adds the new methods to the Global Object
 setUpGlobalObject();
 
-describe.only("Object.size", () => {
-    test("returns the correct size when given an object", () => {
+describe('Object.size', () => {
+    test('returns the correct size when given an object', () => {
         expect(
             Object.size({
                 a: 1,
@@ -24,7 +24,7 @@ describe.only("Object.size", () => {
 
         expect(
             Object.size({
-                name: "Susan"
+                name: 'Susan'
             })
         ).toBe(1);
 
@@ -32,8 +32,8 @@ describe.only("Object.size", () => {
     });
 });
 
-describe.only("Object.min", () => {
-    test("returns the smallest number of all values in an object", () => {
+describe('Object.min', () => {
+    test('returns the smallest number of all values in an object', () => {
         expect(
             Object.min({
                 a: 4,
@@ -54,8 +54,8 @@ describe.only("Object.min", () => {
     });
 });
 
-describe.only("Object.max", () => {
-    test("returns the largest number of all values in an object", () => {
+describe('Object.max', () => {
+    test('returns the largest number of all values in an object', () => {
         expect(
             Object.max({
                 a: 4,
@@ -76,89 +76,89 @@ describe.only("Object.max", () => {
     });
 });
 
-describe.only("Object.clone", () => {
-    test("returns a copy of the object", () => {
+describe('Object.clone', () => {
+    test('returns a copy of the object', () => {
         const person1 = {
-            name: "Sally",
-            location: "Leeds"
+            name: 'Sally',
+            location: 'Leeds'
         };
         const person2 = Object.clone(person1);
 
         expect(person2 === person1).toBe(false);
-        expect(person2.name).toBe("Sally");
-        expect(person2.location).toBe("Leeds");
+        expect(person2.name).toBe('Sally');
+        expect(person2.location).toBe('Leeds');
     });
 });
 
-describe.only("Object.get", () => {
-    test("returns the value for the given key", () => {
+describe('Object.get', () => {
+    test('returns the value for the given key', () => {
         expect(
             Object.get({
-                    name: "Sally",
-                    location: "Leeds"
+                    name: 'Sally',
+                    location: 'Leeds'
                 },
-                "name"
+                'name'
             )
-        ).toBe("Sally");
+        ).toBe('Sally');
 
         expect(
             Object.get({
-                    name: "Sally",
-                    location: "Leeds"
+                    name: 'Sally',
+                    location: 'Leeds'
                 },
-                "location"
+                'location'
             )
-        ).toBe("Leeds");
+        ).toBe('Leeds');
     });
 
-    test("returns undefined if the key is not found", () => {
+    test('returns undefined if the key is not found', () => {
         expect(
             Object.get({
-                    name: "Sally",
-                    location: "Leeds"
+                    name: 'Sally',
+                    location: 'Leeds'
                 },
-                "address"
+                'address'
             )
         ).toBe(undefined);
 
         expect(
             Object.get({
-                    name: "Sally",
-                    location: "Leeds"
+                    name: 'Sally',
+                    location: 'Leeds'
                 },
-                "age"
+                'age'
             )
         ).toBe(undefined);
     });
 });
 
-describe.only("Object.has", () => {
-    test("returns true if the object has the give key", () => {
-        const obj1 = { name: "Sally", location: "Leeds" };
-        expect(Object.has(obj1, "name")).toBe(true);
-        expect(Object.has(obj1, "location")).toBe(true);
+describe('Object.has', () => {
+    test('returns true if the object has the give key', () => {
+        const obj1 = { name: 'Sally', location: 'Leeds' };
+        expect(Object.has(obj1, 'name')).toBe(true);
+        expect(Object.has(obj1, 'location')).toBe(true);
     });
 
-    test("returns false if the object does not have the give key", () => {
-        const obj1 = { name: "Sally", location: "Leeds" };
-        expect(Object.has(obj1, "postcode")).toBe(false);
-        expect(Object.has(obj1, "address")).toBe(false);
+    test('returns false if the object does not have the give key', () => {
+        const obj1 = { name: 'Sally', location: 'Leeds' };
+        expect(Object.has(obj1, 'postcode')).toBe(false);
+        expect(Object.has(obj1, 'address')).toBe(false);
     });
 
-    test("returns true if the object has the given key, but it is a falsey value", () => {
+    test('returns true if the object has the given key, but it is a falsey value', () => {
         const obj1 = {
-            name: "Sally",
-            location: "Leeds",
+            name: 'Sally',
+            location: 'Leeds',
             address: null,
             signedIn: false
         };
-        expect(Object.has(obj1, "signedIn")).toBe(true);
-        expect(Object.has(obj1, "address")).toBe(true);
+        expect(Object.has(obj1, 'signedIn')).toBe(true);
+        expect(Object.has(obj1, 'address')).toBe(true);
     });
 });
 
-describe.only("Object.sum", () => {
-    test("returns the sum of all the values when all values are numbers", () => {
+describe('Object.sum', () => {
+    test('returns the sum of all the values when all values are numbers', () => {
         const obj = {
             a: 1,
             b: 4,
@@ -167,44 +167,44 @@ describe.only("Object.sum", () => {
         expect(Object.sum(obj)).toBe(15);
     });
 
-    test("returns 0 when the object has no key-value pairs", () => {
+    test('returns 0 when the object has no key-value pairs', () => {
         const obj = {};
         expect(Object.sum(obj)).toBe(0);
     });
 
-    test("ignores non-number values", () => {
+    test('ignores non-number values', () => {
         const obj = {
             a: 1,
             b: 4,
             c: false,
             d: 10,
-            e: "cat"
+            e: 'cat'
         };
         expect(Object.sum(obj)).toBe(15);
     });
 
-    test("returns 0 if no values are numbers", () => {
+    test('returns 0 if no values are numbers', () => {
         const obj = {
-            a: "dog",
-            b: "foo",
-            c: "bar",
-            d: "snail",
-            e: "cat"
+            a: 'dog',
+            b: 'foo',
+            c: 'bar',
+            d: 'snail',
+            e: 'cat'
         };
         expect(Object.sum(obj)).toBe(0);
     });
 });
 
-describe.only("Object.invert", () => {
-    test("returns a new object which is the inversion of the given object", () => {
+describe('Object.invert', () => {
+    test('returns a new object which is the inversion of the given object', () => {
         const original = {
-            name: "Sally",
-            location: "Leeds"
+            name: 'Sally',
+            location: 'Leeds'
         };
 
         const expected = {
-            Sally: "name",
-            Leeds: "location"
+            Sally: 'name',
+            Leeds: 'location'
         };
 
         // Checking we are getting a new object created
@@ -213,63 +213,63 @@ describe.only("Object.invert", () => {
         expect(Object.invert(original)).toEqual(expected);
     });
 
-    test("also works with more complex values", () => {
+    test('also works with more complex values', () => {
         const original = {
-            name: "Sally",
-            location: "Leeds",
-            address: "5 Hull Road, Beeston"
+            name: 'Sally',
+            location: 'Leeds',
+            address: '5 Hull Road, Beeston'
         };
 
         const expected = {
-            Sally: "name",
-            Leeds: "location",
-            "5 Hull Road, Beeston": "address"
+            Sally: 'name',
+            Leeds: 'location',
+            '5 Hull Road, Beeston': 'address'
         };
 
         expect(Object.invert(original)).toEqual(expected);
     });
 });
 
-describe("Object.addAll", () => {
-    test("Creates a new object out of all the objects in an array", () => {
-        const objects = [{ a: 1 }, { b: 3 }, { c: "foo" }];
+describe.only('Object.addAll', () => {
+    test('Creates a new object out of all the objects in an array', () => {
+        const objects = [{ a: 1 }, { b: 3 }, { c: 'foo' }];
 
         const expected = {
             a: 1,
             b: 3,
-            c: "foo"
+            c: 'foo'
         };
 
         expect(Object.addAll(objects)).toEqual(expected);
     });
 
-    test("Later objects in the array with the same keys as earlier objects overwrite previous ones", () => {
-        const objects = [{ a: 1 }, { b: 3 }, { a: "foo" }];
+    test('Later objects in the array with the same keys as earlier objects overwrite previous ones', () => {
+        const objects = [{ a: 1 }, { b: 3 }, { a: 'foo' }];
 
         const expected = {
-            a: "foo",
+            a: 'foo',
             b: 3
         };
 
         expect(Object.addAll(objects)).toEqual(expected);
     });
 
-    test("Works with objects that have multiple key-value pairs", () => {
-        const objects = [{ a: 1 }, { b: 3 }, { c: "foo", d: "bar" }];
+    test('Works with objects that have multiple key-value pairs', () => {
+        const objects = [{ a: 1 }, { b: 3 }, { c: 'foo', d: 'bar' }];
 
         const expected = {
             a: 1,
             b: 3,
-            c: "foo",
-            d: "bar"
+            c: 'foo',
+            d: 'bar'
         };
 
         expect(Object.addAll(objects)).toEqual(expected);
     });
 });
 
-describe("Object.find", () => {
-    test("returns the found value if the object contains a value that matches the matcher function", () => {
+describe('Object.find', () => {
+    test('returns the found value if the object contains a value that matches the matcher function', () => {
         function matcherFunc(val) {
             return val > 99;
         }
@@ -286,7 +286,7 @@ describe("Object.find", () => {
         expect(result).toBe(220);
     });
 
-    test("returns null if the object does not contain a value that matches the matcher function", () => {
+    test('returns null if the object does not contain a value that matches the matcher function', () => {
         function matcherFunc(val) {
             return val > 99;
         }
@@ -304,8 +304,8 @@ describe("Object.find", () => {
     });
 });
 
-describe("Object.every", () => {
-    test("returns true if all values in the object pass the condition of the matcher the function", () => {
+describe('Object.every', () => {
+    test('returns true if all values in the object pass the condition of the matcher the function', () => {
         function matcherFunc(val) {
             return val > 99;
         }
@@ -322,7 +322,7 @@ describe("Object.every", () => {
         expect(result).toBe(true);
     });
 
-    test("returns false if not all values in the object pass the condition of the matcher the function", () => {
+    test('returns false if not all values in the object pass the condition of the matcher the function', () => {
         function matcherFunc(val) {
             return val > 99;
         }
@@ -340,8 +340,8 @@ describe("Object.every", () => {
     });
 });
 
-describe("Object.some", () => {
-    test("returns true if one or more values in the object pass the condition of the matcher the function", () => {
+describe('Object.some', () => {
+    test('returns true if one or more values in the object pass the condition of the matcher the function', () => {
         function matcherFunc(val) {
             return val > 99;
         }
@@ -358,7 +358,7 @@ describe("Object.some", () => {
         expect(result).toBe(true);
     });
 
-    test("returns false if none of the values in the object pass the condition of the matcher the function", () => {
+    test('returns false if none of the values in the object pass the condition of the matcher the function', () => {
         function matcherFunc(val) {
             return val > 99;
         }
