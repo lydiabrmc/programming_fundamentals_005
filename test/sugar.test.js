@@ -230,7 +230,7 @@ describe('Object.invert', () => {
     });
 });
 
-describe.only('Object.addAll', () => {
+describe('Object.addAll', () => {
     test('Creates a new object out of all the objects in an array', () => {
         const objects = [{ a: 1 }, { b: 3 }, { c: 'foo' }];
 
@@ -340,7 +340,7 @@ describe('Object.every', () => {
     });
 });
 
-describe('Object.some', () => {
+describe.only('Object.some', () => {
     test('returns true if one or more values in the object pass the condition of the matcher the function', () => {
         function matcherFunc(val) {
             return val > 99;
