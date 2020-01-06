@@ -1,8 +1,6 @@
 const setUpGlobalObject = require('../lib/sugar');
 
-// Invoking this function adds the new methods to the Global Object
 setUpGlobalObject();
-
 describe('Object.size', () => {
     test('returns the correct size when given an object', () => {
         expect(
@@ -94,18 +92,18 @@ describe('Object.get', () => {
     test('returns the value for the given key', () => {
         expect(
             Object.get({
-                    name: 'Sally',
-                    location: 'Leeds'
-                },
+                name: 'Sally',
+                location: 'Leeds'
+            },
                 'name'
             )
         ).toBe('Sally');
 
         expect(
             Object.get({
-                    name: 'Sally',
-                    location: 'Leeds'
-                },
+                name: 'Sally',
+                location: 'Leeds'
+            },
                 'location'
             )
         ).toBe('Leeds');
@@ -114,18 +112,18 @@ describe('Object.get', () => {
     test('returns undefined if the key is not found', () => {
         expect(
             Object.get({
-                    name: 'Sally',
-                    location: 'Leeds'
-                },
+                name: 'Sally',
+                location: 'Leeds'
+            },
                 'address'
             )
         ).toBe(undefined);
 
         expect(
             Object.get({
-                    name: 'Sally',
-                    location: 'Leeds'
-                },
+                name: 'Sally',
+                location: 'Leeds'
+            },
                 'age'
             )
         ).toBe(undefined);
@@ -206,8 +204,6 @@ describe('Object.invert', () => {
             Sally: 'name',
             Leeds: 'location'
         };
-
-        // Checking we are getting a new object created
         expect(Object.invert(original) === original).toBe(false);
 
         expect(Object.invert(original)).toEqual(expected);
