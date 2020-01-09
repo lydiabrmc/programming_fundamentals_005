@@ -1,27 +1,31 @@
-# Advanced Objects: Sugar Library
+Sugar.js
+Sugar.js is a JavaScript utility library for working with native objects. It allows, amongst other things, extension of the Object object with additional helpful methods.
 
-In this exercise we'll be creating some helpful extensions to the `Object` object in JavaScript, inspired by the [Sugar JavaScript library](https://sugarjs.com/docs/#/Object). Note
+This projects replicates some of the functionality of Sugar.js.
 
-The aim of this exercise is to become more comfortable working with objects in JavaScript, specifically:
+It has been developed with full TDD.
 
-- Looping over objects
-- Adding, modifying and removing key-value pairs
-- Making copies of objects
+Running the tests
+Node.js must be installed if not already.
 
-In this exercise, the tests are already written for you. Take a good look at them, as they offer lots of demonstrations of more complex testing.
+First, clone this repository and install dependencies:
 
-### Get started
+npm install
+To run the test suite:
 
-1. First, **fork** and **clone** this repository onto your computer
+npm test
+API
+This project implements the following methods:
 
-2. `cd` into the new directory which is created
-
-3. run `npm install` to install the dependencies
-
-4. head over to [TASKS.md](./docs/TASKS.md) for instructions on how to complete the exercise
-
-### Further work
-
-If you want to extend this project in the future, perhaps to provide an additional item for your portfolio, take a look at other methods for Objects listed on the [Sugar documentation](https://sugarjs.com/docs/#/Object) and feel free to implement, and test, more methods of your choice.
-
-Many of the functions have more advanced functionality than we have implemented here - feel free to read the documentation and extend your methods to be more powerful, using the Red-Green-Refactor development cycle.
+Object.size
+Object.min
+Object.max
+Object.clone
+Object.get
+Object.has
+Object.sum
+Object.invert
+Object.addAll
+Object.find
+Object.every
+Object.some
