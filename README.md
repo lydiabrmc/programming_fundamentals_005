@@ -1,4 +1,3 @@
-Sugar.js
 Sugar.js is a JavaScript utility library for working with native objects. It allows, amongst other things, extension of the Object object with additional helpful methods.
 
 This projects replicates some of the functionality of Sugar.js.
